@@ -34,14 +34,14 @@ public class Hand
     }
     public int getRam(){
         double num = Math.random();
-        int ram = (int) (num * 10);
+        int ram = (int) (num * 10) + 1;
         return ram;
     }
     
     // Mutator Methods 
     public void Hit(){
         double num = Math.random();
-        newCard = (int) (num *10);
+        newCard = (int) (num *10) +1 ;
     }
     
 
