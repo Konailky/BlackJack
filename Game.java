@@ -11,7 +11,7 @@ public class Game
 {
     public static void main(){
         Scanner scanner = new Scanner (System.in);
-        int money = 15;//I tried to incorporate a game like how lucky 7's was....Each game may take too long...
+        int money = 15;//I tried to incorporate a game like how lucky 7's was....Each game may take a while to complete long...
         while (money > 0){
             Hand player = new Hand();
             Hand dealer = new Hand();
