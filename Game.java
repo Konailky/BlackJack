@@ -11,16 +11,17 @@ public class Game
 {
     public static void main(){
         Scanner scanner = new Scanner (System.in);
-        int money = 15;//I tried to incorporate a game like how lucky 7's was....Each game may take a while to complete long...
+        int money = 15;//I tried to incorporate a game like how lucky 7's was....Each game may take a while to complete...
+        int round = 1;
         while (money > 0){
             Hand player = new Hand();
             Hand dealer = new Hand();
             int playerTotal = (player.getCard1() + player.getCard2());
             int dealerTotal = (dealer.getCard1() + dealer.getCard2());
             int check = 1;
-            
+
             System.out.println("");
-            System.out.println("NEW ROUND!");
+            System.out.println("NEW ROUND: " + round + "!");
             System.out.println("You drew a total of " + (playerTotal) + ".");
             System.out.println("Deal has drawn a " + dealer.getCard1() + " and a hidden card.");
 
@@ -33,9 +34,10 @@ public class Game
                     System.out.println("Your new total is " + (playerTotal) + "."); 
                     if (playerTotal > 21) {
                         System.out.println("You have busted :P");
-                        check -= 1;
+                        round ++;
                         money -=3;
-                       
+                        System.out.println("You now have $" + money + ".");
+                        check -= 1;
                     }
 
                 }
@@ -53,22 +55,33 @@ public class Game
                             if (dealerTotal > 21){
                                 System.out.println(" ");
                                 System.out.println("Dealer has busted and you win :D");
-
-
+                                money += 5;
+                                System.out.println("You now have $ " + money + ".");
+                                round ++;
                             }
                             else if( playerTotal > dealerTotal){
                                 System.out.println(" ");
                                 System.out.println("Your total was " + playerTotal + " and dealer's total was " + dealerTotal +".");
                                 System.out.println("You have won :D");
                                 money +=5;
-                                
+                                System.out.println("You now have $ " + money + ".");
+                                round ++;
                             }
-                            else {
+                            else if (playerTotal < dealerTotal) {
                                 System.out.println(" ");
                                 System.out.println("Your total was " + playerTotal + " and dealer's total was " + dealerTotal +".");
                                 System.out.println("You have lost :P");
                                 money -=3;
-                                
+                                System.out.println("You now have $ " + money + ".");
+                                round ++;
+                            }
+                            else {
+                                System.out.println(" ");
+                                System.out.println("The dealer has gotten the same total as you did. What an amazing coincidence. :|");
+                                System.out.println("You still lose money for this round. Better luck next time :P");
+                                money -=3;
+                                System.out.println("You now have $ " + money + ".");
+                                round ++;
                             }
 
                         }
@@ -80,7 +93,7 @@ public class Game
         }
         if (money <=0){
             System.out.println(" ");
-            System.out.println("You have wasted plenty of time and money. Go home.");
+            System.out.println("You have wasted plenty of time and money. Go home. :P");
         }
     }
 }

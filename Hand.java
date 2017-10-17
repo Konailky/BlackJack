@@ -1,6 +1,8 @@
 
 /**
- * The Hands
+ * The Hand
+ * This will generate all the random numbers for the hands of the player 
+ * and the dealer. 
  * 
  * @author (Kong) 
  * @version (9.26.17)
@@ -9,9 +11,9 @@ import java.lang.Math;
 public class Hand
 {
     //Fields
-    private int card1;
-    private int card2;
-    private int newCard;
+    private int card1;//I made five variables, but in the end.....
+    private int card2;//I only used 
+    private int newCard;//Three
     private int total;
     private int numInHand;
 
